@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>{{movie.name}}</h1>
+    <small>Directed by {{movie.director}}</small>
+    <h4>
+        Rated by critics: {{movie.critic_rate}}
+        <hr>
+        Rated by users: {{movie.user_rate}}/10
+    </h4>
+    <hr>
+    <div>
+        {{movie.content}}
+    </div>
+    <hr>
+    <table class="table table-striped">
+        <tr>
+          <th>Content</th>
+          <th>By</th>
+        </tr>
+        {% for review in reviews %}
+          <tr>
+            <td>{{review[2]}}</td>
+            <td>{{review[3]}}</td>
+            <!--
+                <td><a href="edit_review/{{review.id}}" class="btn btn-default pullright">Edit</a></td>
+                <td><a href="delete_rewiew/{{review.id}}" class="btn btn-default pullright">Delete</a></td>
+            --> 
+          </tr>
+        {% endfor %}
+      </table>
+
+
+      <a class="btn btn-success" href="/add_review/{{movie.id}}"> Add Review</a>
+      <a class="btn btn-success" href="/add_rate/{{movie.id}}"> Add Rate</a>
+
+{% endblock %}
+

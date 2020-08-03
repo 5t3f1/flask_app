@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Dashboard <small> Welcome, {{session.username}}</small></h1>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>Movie</th>
+      <th>Content</th>
+      <th>By</th>
+    </tr>
+    {% for review in reviews %}
+      <tr>
+        <td>{{review[1]}}</td>
+        <td>{{review[2]}}</td>
+        <td>{{review[3]}}</td>
+        <!--
+            <td><a href="edit_review/{{review.id}}" class="btn btn-default pullright">Edit</a></td>
+          <td><a href="delete_rewiew/{{review.id}}" class="btn btn-default pullright">Delete</a></td>
+        
+        -->
+        
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
